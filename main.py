@@ -21,5 +21,14 @@ class LandingGearController:
         else:
             self.log("Command rejected")
 
+    def command_gear_up(self):
+        if self.state == GearState.DOWN_LOCKED:
+            self.state = GearState.TRANSITIONING_DOWN
+            self.log("Gear retracting")
+            self.state = GearState.UP_LOCKED
+            self.log("Gear locked up")
+        else:
+            self.log("Command rejected")
+
 controller = LandingGearController()
 controller.command_gear_down()
