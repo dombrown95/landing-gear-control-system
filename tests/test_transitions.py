@@ -1,3 +1,24 @@
+"""
+LGCS Verification Tests
+
+Author: Dom Brown
+Date: 21-01-2026
+
+Requirement IDs:
+FR1: Simulate landing gear deployment behaviour.
+FR2: Simulate landing gear retraction behaviour.
+FR3: Manage discrete gear states.
+FR4: Perform deterministic, time-based state transitions.
+
+Verification Summary:
+This test suite provides automated verification that the Landing Gear Controller
+transitions between expected gear states within the specified simulated time
+intervals and correctly rejects invalid command sequences.
+
+Change Log:
+- 21-01-2026: Initial automated verification tests for gear state transitions.
+"""
+
 from lgcs.controller import LandingGearController, GearState
 
 def test_deploy_reaches_down_locked_after_deploy_time():

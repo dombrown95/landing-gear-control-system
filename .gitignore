@@ -1,4 +1,6 @@
 # Python bytecode
 
+*.log
 __pycache__/
+.pytest_cache/
 *.pyc

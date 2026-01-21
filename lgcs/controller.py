@@ -1,4 +1,33 @@
+"""
+Landing Gear Control System (LGCS)
+Landing Gear Controller Module
+
+Author: Dom Brown
+Date: 07-01-2026
+
+Requirement IDs:
+FR1: Simulate landing gear deployment behaviour.
+FR2: Simulate landing gear retraction behaviour.
+FR3: Manage discrete gear states.
+FR4: Perform deterministic, time-based state transitions.
+FR7: Reject and log invalid command sequences.
+
+Module Summary:
+Implements the core state machine for the LGCS prototype, including
+command handling, state transitions and time-based behaviour used
+by the simulation and verification tests.
+
+Change Log:
+- 07-01-2026: Initial controller implementation with basic state handling.
+- 14-01-2026: Added retract behaviour and state validation.
+- 16-01-2026: Introduced time-based transitions using elapsed time.
+- 21-01-2026: Updated logging hooks to support structured logging (FR7).
+"""
+
 from enum import Enum, auto
+import logging
+
+logger = logging.getLogger("lgcs.controller")
 
 class GearState(Enum):
     """Defines the discrete states of the landing gear control system."""
@@ -20,8 +49,8 @@ class LandingGearController:
         self._transition_elapsed_s = 0.0
 
     def log(self, message: str) -> None:
-        """Outputs a status message for the landing gear system state."""
-        print(f"[{self.state.name}] {message}")
+        """Logs a status message for the landing gear system state."""
+        logger.info("[%s] %s", self.state.name, message)
 
     def _start_transition(self, new_state: GearState, action_msg: str) -> None:
         """Starts a transition state and resets the transition timer."""
