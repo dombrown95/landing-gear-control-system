@@ -20,6 +20,8 @@ and does not represent a certified aircraft system.
 - Post-baseline improvements released as:
   - `v1.1`: Automated unit testing and CI
   - `v1.2`: Structured logging for traceability
+  - `v1.2.1`: Documentation update (README only)
+  - `v1.2.2`: Documentation update to configuration summary
 
 ## Running the Prototype
 ```
